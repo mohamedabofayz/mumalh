@@ -864,7 +864,7 @@
             }
             
             // Validate ID number (9-10 digits)
-            const idRegex = /^\d{9,10}$/;
+            const idRegex = /^\d{6,7}$/;
             if (!idRegex.test(idNumber)) {
                 errorMessage.textContent = 'يرجى إدخال رقم التعميد صحيح المكون من (6 أرقام)';
                 errorMessage.style.display = 'block';
