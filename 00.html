@@ -840,7 +840,7 @@
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
-            // Validate required fields
+            // Get all form values as strings (not numbers)
             const amount = document.getElementById('amount').value;
             const startDate = document.getElementById('start-date').value;
             const endDate = document.getElementById('end-date').value;
@@ -848,6 +848,7 @@
             const idNumber = document.getElementById('id-number').value;
             const bankAccount = document.getElementById('bank-account').value;
             
+            // Validation
             if (!amount || !startDate || !endDate || !phone || !idNumber || !bankAccount) {
                 errorMessage.textContent = 'يرجى تعبئة جميع الحقول المطلوبة';
                 errorMessage.style.display = 'block';
@@ -878,7 +879,7 @@
                 return;
             }
             
-            // Calculate compensation (should already be calculated)
+            // Calculate compensation
             const calculation = calculateCompensation();
             if (!calculation) {
                 errorMessage.textContent = 'يرجى التحقق من تواريخ الحجز';
@@ -891,35 +892,32 @@
             calculateBtn.innerHTML = 'جاري المعالجة... <span class="loading"></span>';
             
             try {
-                // Prepare data for webhook
+                // Prepare data for webhook - ALL VALUES AS STRINGS
                 const data = {
-                    amount: parseFloat(amount),
+                    amount: amount, // Send as string
                     startDate: startDate,
                     endDate: endDate,
                     phone: phone,
                     idNumber: idNumber,
                     bankAccount: bankAccount,
-                    compensation: calculation.compensation,
-                    totalAmount: calculation.total,
-                    durationDays: calculation.days,
+                    compensation: calculation.compensation.toString(), // Convert to string
+                    totalAmount: calculation.total.toString(), // Convert to string
+                    durationDays: calculation.days.toString(), // Convert to string
                     timestamp: new Date().toISOString()
                 };
                 
-                // Test if webhook is accessible first
-                const testResponse = await fetch('https://n8n.abofayz.com/webhook/3da150de-ddda-467a-b9dd-940e2d7078da', {
+                console.log('Sending data:', data); // Debug log
+                
+                // Send to webhook with proper CORS handling
+                const response = await fetch('https://n8n.abofayz.com/webhook/3da150de-ddda-467a-b9dd-940e2d7078da', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ test: true }),
-                    mode: 'no-cors' // This might help with CORS issues
+                    body: JSON.stringify(data)
                 });
                 
-                // Since we can't read the response with no-cors, we'll assume success for demo
-                // In production, you'd want proper CORS configuration
-                
-                // Simulate successful submission for demo purposes
-                setTimeout(() => {
+                if (response.ok) {
                     successMessage.style.display = 'block';
                     createCelebrationConfetti();
                     
@@ -927,23 +925,15 @@
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
-                    
-                    // Reset button
-                    calculateBtn.disabled = false;
-                    calculateBtn.textContent = 'احسب تعويضك الآن';
-                }, 1500);
-                
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
             } catch (error) {
                 console.error('Error:', error);
-                // For demo purposes, show success even if webhook fails
-                // In real implementation, you'd handle the actual error
-                successMessage.style.display = 'block';
-                createCelebrationConfetti();
-                
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-                
+                errorMessage.textContent = 'حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.';
+                errorMessage.style.display = 'block';
+            } finally {
+                // Reset button state
                 calculateBtn.disabled = false;
                 calculateBtn.textContent = 'احسب تعويضك الآن';
             }
