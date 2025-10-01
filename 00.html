@@ -667,8 +667,8 @@
                             <input type="text" id="phone" placeholder="05XXXXXXXX" maxlength="10">
                         </div>
                         <div>
-                            <label for="id-number">رقم الهوية:</label>
-                            <input type="text" id="id-number" placeholder="XXXXXXXXX" maxlength="10">
+                            <label for="id-number">رقم التعميد:</label>
+                            <input type="text" id="id-number" placeholder="XXXXXX" maxlength="6">
                         </div>
                         <div>
                             <label for="bank-account">رقم الحساب البنكي:</label>
@@ -866,7 +866,7 @@
             // Validate ID number (9-10 digits)
             const idRegex = /^\d{9,10}$/;
             if (!idRegex.test(idNumber)) {
-                errorMessage.textContent = 'يرجى إدخال رقم هوية صحيح (9-10 أرقام)';
+                errorMessage.textContent = 'يرجى إدخال رقم التعميد صحيح المكون من (6 أرقام)';
                 errorMessage.style.display = 'block';
                 return;
             }
