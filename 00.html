@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رداً للجميل - تعويض 2% سنوياً على مبالغكم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #1a5d1a 0%, #2e8b57 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #1a5d1a;
+            font-weight: 700;
+        }
+        
+        .comparison-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2e8b57;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #2e8b57;
+            font-weight: 700;
+        }
+        
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #1a5d1a;
+        }
+        
+        .card-description {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #2e8b57 0%, #228b22 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(46, 139, 87, 0.3);
+        }
+        
+        .cta-button {
+            background: white;
+            color: #2e8b57;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+        
+        .calculator-section {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2e8b57, #1a5d1a, #2e8b57);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .calculator-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #1a5d1a;
+            font-weight: 700;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #1a5d1a;
+            font-size: 1.1rem;
+        }
+        
+        input[type="number"],
+        input[type="date"],
+        input[type="text"] {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            transition: border-color 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #2e8b57;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .date-inputs {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .date-input {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            display: none;
+            border: 2px solid #2e8b57;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-item {
+            margin: 15px 0;
+        }
+        
+        .result-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2e8b57;
+        }
+        
+        .highlight {
+            color: #228b22;
+            font-weight: 700;
+        }
+        
+        .assurance-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #228b22;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .info-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, #2e8b57 0%, #1a5d1a 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(46, 139, 87, 0.3);
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 139, 87, 0.4);
+        }
+        
+        .calculate-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+            }
+            
+            .calculator-section {
+                padding: 30px 20px;
+            }
+            
+            .card-value {
+                font-size: 2rem;
+            }
+            
+            .date-inputs {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+            
+            header {
+                padding: 40px 0;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .comparison-card {
+                min-width: 250px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://muamlah.com/wp-content/uploads/2020/10/icon-150x150.png" alt="شعار" class="logo">
+            <h1>رداً للجميل نعوضكم عن حجز مبلغكم لدينا بتعويض 2% سنوياً على مبالغكم</h1>
+            <p class="intro-text">
+                الحمد لله، تم فك الحجز عن المبالغ التي كانت محجوزة لدينا. 
+                ورداً للجميل ولتقديركم وصبركم، نقدم لكم تعويضاً بنسبة 2% سنوياً على جميع المبالغ المحجوزة، 
+                تحسب بشكل يومي طوال مدة الحجز. كل عميل سيحصل على حقه الكامل بشكل عادل وشفاف.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">مقارنة سهلة بين تعويضنا ومعدلات البنوك</h2>
+            <div class="comparison-container">
+                <div class="comparison-card">
+                    <div class="card-title">تعويضنا السنوي</div>
+                    <div class="card-value">2%</div>
+                    <div class="card-description">
+                        معدل سنوي ثابت<br>
+                        يُحسب يومياً طوال مدة الحجز<br>
+                        رداً للجميل وتقديراً لصبركم
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">معدلات البنوك</div>
+                    <div class="card-value">0.5% - 1.5%</div>
+                    <div class="card-description">
+                        فوائد سنوية منخفضة<br>
+                        مع شروط وقيود متعددة<br>
+                        قد تتغير حسب السوق
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white; margin-bottom: 20px;">احسب تعويضك الآن</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
+                    أدخل المبلغ المحجوز ومدة الحجز، واعرف قيمة التعويض الذي ستحصل عليه
+                </p>
+                <button class="cta-button" onclick="scrollToCalculator()">احسب تعويضك الآن</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="calculator-section">
+                <h2 class="calculator-title">حاسبة التعويض اليومي</h2>
+                <div class="input-group">
+                    <label for="amount">أدخل المبلغ المحجوز (بالريال):</label>
+                    <input type="number" id="amount" placeholder="مثال: 100000" min="0" step="1000">
+                </div>
+                <div class="input-group">
+                    <label for="start-date">تاريخ بدء الحجز:</label>
+                    <div class="date-inputs">
+                        <div class="date-input">
+                            <input type="date" id="start-date">
+                        </div>
+                        <div class="date-input">
+                            <label for="end-date">تاريخ انتهاء الحجز:</label>
+                            <input type="date" id="end-date">
+                        </div>
+                    </div>
+                    <p class="info-text">سيتم حساب التعويض بنسبة 2% سنوياً بشكل يومي طوال مدة الحجز</p>
+                </div>
+                
+                <div class="input-group">
+                    <label>معلوماتك الشخصية (لضمان وصول التعويض):</label>
+                    <div class="personal-info">
+                        <div>
+                            <label for="phone">رقم الجوال:</label>
+                            <input type="text" id="phone" placeholder="05XXXXXXXX" maxlength="10">
+                        </div>
+                        <div>
+                            <label for="id-number">رقم الهوية:</label>
+                            <input type="text" id="id-number" placeholder="XXXXXXXXX" maxlength="10">
+                        </div>
+                        <div>
+                            <label for="bank-account">رقم الحساب البنكي:</label>
+                            <input type="text" id="bank-account" placeholder="XXXXXXXXXXXXXXXX">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="calculate-btn" id="calculate-btn" onclick="submitCalculation()">
+                    احسب تعويضك الآن
+                </button>
+                
+                <div class="success-message" id="success-message">
+                    ✅ تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً.
+                </div>
+                
+                <div class="results" id="results">
+                    <div class="result-item">
+                        <div class="result-label">المبلغ المحجوز:</div>
+                        <div class="result-value" id="original-amount">0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">مدة الحجز:</div>
+                        <div class="result-value" id="duration-days">0</div>
+                        <p style="font-size: 1rem; color: #666; margin-top: 5px;">أيام</p>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">تعويض 2% سنوياً (محسوب يومياً):</div>
+                        <div class="result-value" id="compensation-amount">0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">المبلغ الإجمالي (الأصلي + التعويض):</div>
+                        <div class="result-value" id="total-amount">0</div>
+                    </div>
+                </div>
+                <p class="assurance-text">
+                    ✅ المبلغ مضمون وسيتم صرفه بشكل عادل وشفاف
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function scrollToCalculator() {
+            document.querySelector('.calculator-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function calculateCompensation() {
+            const amount = parseFloat(document.getElementById('amount').value) || 0;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const resultsDiv = document.getElementById('results');
+            
+            if (amount > 0 && startDate && endDate) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                
+                if (end < start) {
+                    resultsDiv.style.display = 'none';
+                    return;
+                }
+                
+                // Calculate days between dates
+                const timeDiff = end.getTime() - start.getTime();
+                const days = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1; // +1 to include both start and end dates
+                
+                if (days <= 0) {
+                    resultsDiv.style.display = 'none';
+                    return;
+                }
+                
+                // Calculate daily rate (2% annually = 0.02/365 daily)
+                const dailyRate = 0.02 / 365;
+                const compensation = amount * dailyRate * days;
+                const total = amount + compensation;
+                
+                document.getElementById('original-amount').textContent = formatNumber(amount);
+                document.getElementById('duration-days').textContent = days.toLocaleString('ar-SA');
+                document.getElementById('compensation-amount').textContent = formatNumber(compensation);
+                document.getElementById('total-amount').textContent = formatNumber(total);
+                
+                resultsDiv.style.display = 'block';
+                return { amount, days, compensation, total };
+            } else {
+                resultsDiv.style.display = 'none';
+                return null;
+            }
+        }
+
+        function formatNumber(num) {
+            return new Intl.NumberFormat('ar-SA').format(Math.round(num));
+        }
+
+        async function submitCalculation() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            const successMessage = document.getElementById('success-message');
+            
+            // Validate required fields
+            const amount = document.getElementById('amount').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const phone = document.getElementById('phone').value;
+            const idNumber = document.getElementById('id-number').value;
+            const bankAccount = document.getElementById('bank-account').value;
+            
+            if (!amount || !startDate || !endDate || !phone || !idNumber || !bankAccount) {
+                alert('يرجى تعبئة جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // Validate phone number (Saudi format)
+            const phoneRegex = /^05\d{8}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('يرجى إدخال رقم جوال صحيح (يبدأ بـ 05 ويتكون من 10 أرقام)');
+                return;
+            }
+            
+            // Validate ID number (9 digits)
+            const idRegex = /^\d{9,10}$/;
+            if (!idRegex.test(idNumber)) {
+                alert('يرجى إدخال رقم هوية صحيح (9-10 أرقام)');
+                return;
+            }
+            
+            // Calculate compensation
+            const calculation = calculateCompensation();
+            if (!calculation) {
+                alert('يرجى التحقق من تواريخ الحجز');
+                return;
+            }
+            
+            // Show loading state
+            calculateBtn.disabled = true;
+            calculateBtn.innerHTML = 'جاري المعالجة... <span class="loading"></span>';
+            
+            try {
+                // Prepare data for webhook
+                const data = {
+                    amount: parseFloat(amount),
+                    startDate: startDate,
+                    endDate: endDate,
+                    phone: phone,
+                    idNumber: idNumber,
+                    bankAccount: bankAccount,
+                    compensation: calculation.compensation,
+                    totalAmount: calculation.total,
+                    durationDays: calculation.days
+                };
+                
+                // Send to webhook
+                const response = await fetch('https://n8n.abofayz.com/webhook/3da150de-ddda-467a-b9dd-940e2d7078da', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('فشل في إرسال البيانات');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.');
+            } finally {
+                // Reset button state
+                calculateBtn.disabled = false;
+                calculateBtn.textContent = 'احسب تعويضك الآن';
+            }
+        }
+
+        // Add event listeners for real-time calculation
+        document.getElementById('amount').addEventListener('input', calculateCompensation);
+        document.getElementById('start-date').addEventListener('change', calculateCompensation);
+        document.getElementById('end-date').addEventListener('change', calculateCompensation);
+
+        // Set default dates for demonstration
+        window.addEventListener('load', function() {
+            const today = new Date();
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+            
+            const formatDate = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
+            
+            document.getElementById('start-date').value = formatDate(oneYearAgo);
+            document.getElementById('end-date').value = formatDate(today);
+            document.getElementById('amount').value = '100000';
+            
+            // Trigger calculation
+            calculateCompensation();
+        });
+    </script>
+</body>
+</html>
